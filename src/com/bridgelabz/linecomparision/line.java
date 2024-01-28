@@ -1,10 +1,11 @@
 package com.bridgelabz.linecomparision;
+import java.util.Objects;
 
-class Line {
+
+class Line implements Comparable<Line> {
     private Point startPoint, endPoint;
 
-    public Line(
-            Point startPoint, Point endPoint) {
+    public Line(Point startPoint, Point endPoint) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
     }
@@ -22,14 +23,20 @@ class Line {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-
         Line otherLine = (Line) obj;
         return startPoint.equals(otherLine.startPoint) && endPoint.equals(otherLine.endPoint);
     }
 
     @Override
     public int hashCode() {
+        return Objects.hash(startPoint, endPoint);
+    }
 
-        return startPoint.hashCode() + endPoint.hashCode();
+    @Override
+    public int compareTo(Line otherLine) {
+        double length1 = this.calculateLength();
+        double length2 = otherLine.calculateLength();
+
+        return Double.compare(length1, length2);
     }
 }
