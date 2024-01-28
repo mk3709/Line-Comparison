@@ -1,22 +1,18 @@
 package com.bridgelabz.linecomparision;
+import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
+        Point point1 = new Point(1, 2);
+        Point point2 = new Point(3, 4);
+        Point point3 = new Point(5, 6);
 
-        // Creating the points for the line
-        point p1 = new point(1,4);
-        point p2 = new point(1,3);
-        point p3 = new point(3,8);
-        point p4 = new point(4,20);
+        Line line1 = new Line(point1, point2);
+        Line line2 = new Line(point1, point2);  // Same points as line1
+        Line line3 = new Line(point1, point3);  // Different points
 
-        // Creating the line
-        line l1 = new line(p1,p2);
-        line l2 = new line(p3,p4);
-
-        // Comparing the length difference between the lines
-        double difference = Math.abs(l1.length() - l2.length());
-
-        //OUT
-        System.out.println("Difference between the two lines is: " + difference);
+        System.out.println("Length of Line 1: " + line1.calculateLength());
+        System.out.println("Line 1 equals Line 2: " + line1.equals(line2));
+        System.out.println("Line 1 equals Line 3: " + line1.equals(line3));
     }
 }

@@ -1,13 +1,18 @@
 package com.bridgelabz.linecomparision;
 
-public class point {
+class Point {
+    private double x, y;
 
-        int x;
-        int y;
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
 
-        // ADDING THE CONSTRUCTORS FOR THE POINT
-        point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
 }
